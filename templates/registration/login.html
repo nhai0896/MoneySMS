@@ -1,0 +1,64 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    {% if form.errors %}
+    <p>Your username and password didn't match. Please try again.</p>
+    {% endif %}
+
+    {% if next %}
+        {% if user.is_authenticated %}
+        <p>Your account doesn't have access to this page. To proceed,
+        please login with an account that has access.</p>
+        {% else %}
+        <p>Please login to see this page.</p>
+        {% endif %}
+    {% endif %}
+    
+    <div class="container">
+        <h3 class="text-center">Login</h3>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <!-- form -->
+                <form class="form-horizontal" method="POST" action="{% url 'money:login_view' %}">
+                    {% csrf_token %}
+                    <!--<div class="form-group">
+                        <label for="email">Email</label>
+                            <input class="form-control" type="email" id="email">
+                    </div>-->
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                            <input class="form-control" type="text" id="username" name="username">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                            <input class="form-control" type="password" id="password" name="password">
+                    </div>
+                    <div class="form-group text-right">
+                            <button class="btn btn-primary" type="submit">Login</button>
+                    </div>
+                    <div class="form-group">
+                        <a href="">Forget password?</a>
+                    </div>
+                </form>
+                <!-- endform-->
+                <a href="{% url 'money:register' %}">Create account</a>
+            </div>
+        </div>
+    </div><!-- container-->
+{% endblock %}
+<!--
+
+<h1>{{ question.question_text }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'polls:vote' question.id %}" method="post">
+{% csrf_token %}
+{% for choice in question.choice_set.all %}
+    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+{% endfor %}
+<input type="submit" value="Vote">
+</form>
+
+-->

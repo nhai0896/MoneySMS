@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block dropdown %}
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="{% url 'login' %}">Account</a>
+        <ul class="dropdown-menu">
+            <!--<li><a href="{% url 'login' %}">Login</a></li>-->
+            <li><a href="{% url 'money:logout_view' %}">Logout</a></li>
+        </ul>
+    </li>
+{% endblock %}
+
+{% block content %}
+    
+{% endblock %}
+        

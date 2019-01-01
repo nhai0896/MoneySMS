@@ -1,0 +1,32 @@
+{% extends "login_view.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Overview</th>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Inflow</td>
+                        <td class="text-right"></td>
+                    </tr>
+                    <tr>
+                        <td>Outflow</td>
+                        <td class="text-right"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="text-right">balance</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div> <!-- container -->
+<hr/>
+{% endblock %}
